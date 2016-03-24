@@ -71,17 +71,42 @@ public class IndexUtil {
 	}
 	
 	public void query(){
-		
 		try {
 			IndexReader reader = IndexReader.open(directory);
 			System.out.println("numDocs " +reader.numDocs());
 			System.out.println("maxDoc " +reader.maxDoc());
-			
-			
 		} catch (CorruptIndexException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
+		}
+		
+	}
+	
+	public void delete(){
+		IndexWriter writer = null;
+		
+		try {
+			writer = new IndexWriter(directory,new IndexWriterConfig(Version.LUCENE_35, new StandardAnalyzer(Version.LUCENE_35)));
+			
+			
+			
+		} catch (CorruptIndexException e) {
+			e.printStackTrace();
+		} catch (LockObtainFailedException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}finally {
+			if (writer!=null) {
+				try {
+					writer.close();
+				} catch (CorruptIndexException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
 		}
 		
 	}
