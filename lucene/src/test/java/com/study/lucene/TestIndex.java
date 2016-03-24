@@ -17,4 +17,10 @@ public class TestIndex {
 		iUtil.query();
 	}
 	
+	@Test
+	public void testDelete(){
+		IndexUtil iUtil = new IndexUtil();
+		iUtil.delete();
+	}
+	
 }

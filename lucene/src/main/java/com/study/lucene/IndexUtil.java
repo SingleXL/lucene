@@ -3,6 +3,8 @@ package com.study.lucene;
 import java.io.File;
 import java.io.IOException;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.spi.LoggerFactory;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
@@ -10,6 +12,7 @@ import org.apache.lucene.index.CorruptIndexException;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
+import org.apache.lucene.index.Term;
 import org.apache.lucene.index.IndexReader.FieldOption;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
@@ -18,6 +21,8 @@ import org.apache.lucene.util.Version;
 
 public class IndexUtil {
 
+	Logger logger = Logger.getLogger(IndexUtil.class);
+	
 	private String[] ids = { "1", "2", "3", "4", "5", "6" };
 	private String[] emails = { "aa@itat.org", "bb@itat.org", "cc@itat.org", "dd@itat.org", "ee@itat.org", "ff@itat.org" };
 	private String[] contents = { "welcome to visited the space", "hello", "my name is cc", "like football", "dasda", "dqwww" };
@@ -75,6 +80,9 @@ public class IndexUtil {
 			IndexReader reader = IndexReader.open(directory);
 			System.out.println("numDocs " +reader.numDocs());
 			System.out.println("maxDoc " +reader.maxDoc());
+			
+			logger.info("aa");
+			
 		} catch (CorruptIndexException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -89,8 +97,8 @@ public class IndexUtil {
 		try {
 			writer = new IndexWriter(directory,new IndexWriterConfig(Version.LUCENE_35, new StandardAnalyzer(Version.LUCENE_35)));
 			
-			
-			
+			// 参数是一个选项，可以是一个Query，也可以是一个term
+			writer.deleteDocuments(new Term("id", "1"));
 		} catch (CorruptIndexException e) {
 			e.printStackTrace();
 		} catch (LockObtainFailedException e) {
