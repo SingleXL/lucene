@@ -1,0 +1,18 @@
+2016-03-25 10:37:32 ERROR com.study.lucene.TestLog:14 aa
+2016-03-25 10:37:32 ERROR com.study.lucene.TestLog:19 java.lang.ArithmeticException: / by zero
+2016-03-25 10:38:14 ERROR com.study.lucene.TestLog.testLog(TestLog.java:14) 
+    aa
+2016-03-25 10:38:14 ERROR com.study.lucene.TestLog.testLog(TestLog.java:19) 
+    java.lang.ArithmeticException: / by zero
+2016-03-25 10:38:41 ERROR com.study.lucene.TestLog.testLog(TestLog.java:14) 
+    aa
+2016-03-25 10:38:41 ERROR com.study.lucene.TestLog.testLog(TestLog.java:19) 
+    java.lang.ArithmeticException: / by zero
+2016-03-25 10:38:55 ERROR com.study.lucene.TestLog.testLog(TestLog.java:14) 
+    aa
+2016-03-25 10:39:06 ERROR com.study.lucene.TestLog.testLog(TestLog.java:14) 
+    aa
+2016-03-25 10:41:27 ERROR com.study.lucene.TestLog.testLog(TestLog.java:14) 
+    aa
+2016-03-25 10:42:09 ERROR com.study.lucene.TestLog.testLog(TestLog.java:14) 
+	aa
